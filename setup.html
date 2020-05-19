@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BATTLESHAPES SETUP</title>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="lib/battleshapes.css" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule=""
+      src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"
+    ></script>
+  </head>
+  <body>
+    <div class="container pb-5">
+      <h1 class="display-3">BATTLESHAPES SETUP</h1>
+      <div class="row mx-auto">
+        <div class="col-xs my-auto">
+          <h3>Shapes</h3>
+        </div>
+        <div class="col-xs ml-3">
+          <button class="btn btn-success" id="addShapeButton">
+            <ion-icon name="add"></ion-icon>
+          </button>
+        </div>
+      </div>
+      <p>
+        Customize the shapes to fire at. Use the dropdowns for preset shapes.
+      </p>
+      <div class="row mx-auto" id="customShapes"></div>
+
+      <h3>Shots</h3>
+      <p>Customize the firing patterns' area of effect.</p>
+      <div class="row">
+        <div class="col-4">
+          <h4>Standard</h4>
+          <table
+            class="table table-bordered customizable-grid custom-shot-grid"
+            id="standardShotGrid"
+          >
+            <tr>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+            </tr>
+            <tr>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td class="selected-cell required-cell">
+                <div class="grid-cell mx-auto">
+                  <ion-icon name="locate-outline"></ion-icon>
+                </div>
+              </td>
+              <td><div class="grid-cell mx-auto"></div></td>
+            </tr>
+            <tr>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-4">
+          <h4>Bomb</h4>
+          <table
+            class="table table-bordered customizable-grid custom-shot-grid"
+            id="bombShotGrid"
+          >
+            <tr>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+            </tr>
+            <tr>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td class="selected-cell">
+                <div class="grid-cell mx-auto"></div>
+              </td>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+            </tr>
+            <tr>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td class="selected-cell">
+                <div class="grid-cell mx-auto"></div>
+              </td>
+              <td class="selected-cell required-cell">
+                <div class="grid-cell mx-auto">
+                  <ion-icon name="star-outline"></ion-icon>
+                </div>
+              </td>
+              <td class="selected-cell">
+                <div class="grid-cell mx-auto"></div>
+              </td>
+              <td><div class="grid-cell mx-auto"></div></td>
+            </tr>
+            <tr>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td class="selected-cell">
+                <div class="grid-cell mx-auto"></div>
+              </td>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+            </tr>
+            <tr>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-4">
+          <h4>Nuke</h4>
+          <table
+            class="table table-bordered customizable-grid custom-shot-grid"
+            id="nukeShotGrid"
+          >
+            <tr>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="grid-cell mx-auto"></div>
+              </td>
+              <td>
+                <div class="grid-cell mx-auto"></div>
+              </td>
+              <td>
+                <div class="grid-cell mx-auto"></div>
+              </td>
+              <td class="selected-cell">
+                <div class="grid-cell mx-auto"></div>
+              </td>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+            </tr>
+            <tr>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td class="selected-cell">
+                <div class="grid-cell mx-auto"></div>
+              </td>
+              <td class="selected-cell">
+                <div class="grid-cell mx-auto"></div>
+              </td>
+              <td class="selected-cell">
+                <div class="grid-cell mx-auto"></div>
+              </td>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+            </tr>
+            <tr>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td class="selected-cell">
+                <div class="grid-cell mx-auto"></div>
+              </td>
+              <td class="selected-cell">
+                <div class="grid-cell mx-auto"></div>
+              </td>
+              <td class="selected-cell required-cell">
+                <div class="grid-cell mx-auto">
+                  <ion-icon name="skull-outline"></ion-icon>
+                </div>
+              </td>
+              <td class="selected-cell">
+                <div class="grid-cell mx-auto"></div>
+              </td>
+              <td class="selected-cell">
+                <div class="grid-cell mx-auto"></div>
+              </td>
+              <td><div class="grid-cell mx-auto"></div></td>
+            </tr>
+            <tr>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td class="selected-cell">
+                <div class="grid-cell mx-auto"></div>
+              </td>
+              <td class="selected-cell">
+                <div class="grid-cell mx-auto"></div>
+              </td>
+              <td class="selected-cell">
+                <div class="grid-cell mx-auto"></div>
+              </td>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+            </tr>
+            <tr>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td class="selected-cell">
+                <div class="grid-cell mx-auto"></div>
+              </td>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+            </tr>
+            <tr>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+              <td><div class="grid-cell mx-auto"></div></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <h3>Colours</h3>
+      <p>Select the colours to be used.</p>
+      <h4>Actions</h4>
+      <p>Customize the colours for actions.</p>
+      <div class="row">
+        <div class="col-4">
+          <div class="form-group row">
+            <label for="hitColor" class="col-auto col-form-label">Hit</label>
+            <div class="col">
+              <input id="hitColor" type="color" value="#f44336" />
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group row">
+            <label for="missColor" class="col-auto col-form-label">Miss</label>
+            <div class="col">
+              <input id="missColor" type="color" value="#2196f3" />
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group row">
+            <label for="sinkColor" class="col-auto col-form-label">Sink</label>
+            <div class="col">
+              <input id="sinkColor" type="color" value="#871414" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <h4>Notes</h4>
+      <p>
+        Customize the colours used for note-taking, like marking off impossible
+        tiles.
+      </p>
+      <div class="row">
+        <div class="col-4">
+          <div class="form-group row">
+            <label for="noteColor1" class="col-auto col-form-label"
+              >Note color 1</label
+            >
+            <div class="col">
+              <input id="noteColor1" type="color" value="#673ab7" />
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group row">
+            <label for="noteColor2" class="col-auto col-form-label"
+              >Note color 2</label
+            >
+            <div class="col">
+              <input id="noteColor2" type="color" value="#4caf50" />
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group row">
+            <label for="noteColor3" class="col-auto col-form-label"
+              >Note color 3</label
+            >
+            <div class="col">
+              <input id="noteColor3" type="color" value="#ff9800" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <h3>Timer</h3>
+      <p>
+        A periodic timer that starts a certain point after the start of the game
+        to indicate an action should be taken.
+      </p>
+      <p>
+        For example, if you wanted a reminder every 10 minutes after 1h30m, use
+        90 for Start time, and 10 for Interval.
+      </p>
+      <p>
+        A start time of 0 enables the timer immediately. An interval of 0
+        disables the timer.
+      </p>
+      <div class="row">
+        <div class="col-4">
+          <div class="form-group row">
+            <label for="startTimeField" class="col-6 col-form-label"
+              >Start time (min)</label
+            >
+            <div class="col">
+              <input
+                id="startTimeField"
+                type="text"
+                value="0"
+                class="form-control"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group row">
+            <label for="intervalField" class="col-6 col-form-label"
+              >Interval (min)</label
+            >
+            <div class="col">
+              <input
+                id="intervalField"
+                type="text"
+                value="0"
+                class="form-control"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <h3>Board Layout</h3>
+      <p>
+        The Pokemon set field is fully customizable with Pokemon numbers. Use
+        {gen#} to include all the Pokemon from a certain gen. For example, use
+        {gen3},{gen4} for a board containing only generation 3 and 4 Pokemon.
+      </p>
+      <p>
+        Multiple numbers can be specified using commas. Ranges can be specified
+        using a hyphen. For example, use 1,4,7,147-151 for a board containing
+        only the generation 1 starters and legendaries.
+      </p>
+      <p>
+        {gen#} macros and numbers can be combined, but must be separated by
+        commas: 1,4,7,147-151,{gen3}.
+      </p>
+      <div class="form-group row">
+        <label for="pokeSet" class="col-2 col-form-label">Pokemon set</label>
+        <div class="col-2">
+          <select id="pokeSets" class="form-control">
+            <option value="custom">Custom</option>
+          </select>
+        </div>
+        <div class="col-3">
+          <input type="text" class="form-control" id="pokeSet" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="sortOrder" class="col-2 col-form-label">Sort order</label>
+        <div class="col-2">
+          <select id="sortOrders" class="form-control">
+            <option value="none">None</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="numColumns" class="col-2 col-form-label"
+          >Number of columns</label
+        >
+        <div class="col-2">
+          <input type="text" class="form-control" id="numColumns" value="22" />
+        </div>
+        <div class="col-3">
+          <button class="btn btn-info px-auto" id="previewButton">
+            Preview
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col" id="boardPreview"></div>
+      </div>
+      <div class="row">
+        <button id="startButton" class="btn btn-success col mx-3">Start</button>
+        <button id="saveButton" class="btn btn-secondary col mx-3">
+          Save Config
+        </button>
+        <button id="loadButton" class="btn btn-secondary col mx-3">
+          Load Config
+        </button>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="lib/shared.js"></script>
+    <script src="lib/setup.js"></script>
+  </body>
+</html>
