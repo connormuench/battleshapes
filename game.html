@@ -21,12 +21,31 @@
   </head>
 
   <body>
-    <div class="container pb-5">
+    <div class="container-fluid pb-5">
       <h1 class="display-3">BATTLESHAPES</h1>
+      <div
+        class="alert alert-warning alert-dismissible fade show"
+        role="alert"
+        id="connectionWarning"
+      >
+        Your connection was disrupted.
+        <button
+          type="button"
+          class="close"
+          data-dismiss="alert"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
       <div id="connectionArea">
-        <div class="row">
-          <div class="col">
-            <div class="input-group">
+        <div
+          class="row connection-input-area"
+          id="playerConnectionArea"
+        >
+          <div class="col-6">
+            <p>Send this data to your opponent:</p>
+            <div class="input-group mb-1">
               <textarea
                 class="form-control"
                 id="connectionInfo"
@@ -43,23 +62,50 @@
                 </button>
               </div>
             </div>
+            <button class="btn btn-success" id="confirmPlayerInfo">OK, I've done this</button>
           </div>
         </div>
-        <div class="row">
-          <div class="col">
-            <textarea class="form-control" id="otherConnectionInfo"></textarea>
+        <div
+          class="row connection-input-area"
+          id="opponentConnectionArea"
+        >
+          <div class="col-6">
+            <p>Paste the data from your opponent here (if neither of you have data to send, one of you needs to <a href="setup.html"></a>create</a> a game first):</p>
+            <div class="input-group">
+              <textarea
+                class="form-control"
+                id="otherConnectionInfo"
+              ></textarea>
+              <div class="input-group-append">
+                <button
+                  class="btn btn-outline-success"
+                  data-toggle="tooltip"
+                  data-placement="bottom"
+                  title="Submit"
+                  id="submitConnectionButton"
+                >
+                  <ion-icon name="send"></ion-icon>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-auto">
-            <button class="btn btn-secondary" id="submitConnectionButton">
-              Submit
-            </button>
+        <div class="row connection-input-area" id="waitingArea">
+          <div class="col-6">
+            <p>Waiting for opponent to connect...</p>
           </div>
         </div>
       </div>
       <div id="playArea" class="my-3">
-        <h3>Opponent's territory</h3>
+        <div
+          id="timer"
+          data-toggle="tooltip"
+          data-placement="bottom"
+          class="text-center"
+        >
+          0.0
+        </div>
+        <h3 id="opponentHeading">Opponent's territory</h3>
         <div class="row">
           <div class="col-auto">
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
@@ -141,21 +187,27 @@
               placeholder="Search"
             />
           </div>
-          <div
-            id="timer"
-            class="col-2"
-            data-toggle="tooltip"
-            data-placement="bottom"
-          ></div>
         </div>
         <div class="row">
           <div class="col-auto">
             <div id="opponentBoard" class="game-board my-1"></div>
           </div>
+          <div class="col-2">
+            <p id="playerStats" class="stats">
+              Misses: 0<br />Hits: 0<br />Sinks: 0
+            </p>
+            <div id="playerLastAction" class="last-action"></div>
+          </div>
         </div>
         <div class="row">
           <div class="col-auto">
             <div id="playerBoard" class="game-board my-1"></div>
+          </div>
+          <div class="col-2">
+            <p id="opponentStats" class="stats">
+              Misses: 0<br />Hits: 0<br />Sinks: 0
+            </p>
+            <div id="opponentLastAction" class="last-action"></div>
           </div>
         </div>
         <h3>Your territory</h3>
@@ -173,7 +225,16 @@
           </div>
         </div>
         <div class="row" id="readyArea">
-          <div class="col text-center">
+          <div class="col-auto">
+            <input
+              type="text"
+              name="playerName"
+              id="playerName"
+              placeholder="Player name"
+              class="form-control"
+            />
+          </div>
+          <div class="col-auto">
             <button class="btn btn-success px-4" id="readyButton">Ready</button>
           </div>
         </div>
