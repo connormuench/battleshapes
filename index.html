@@ -23,6 +23,17 @@
     <div class="container pb-5">
       <h1 class="display-3">BATTLESHAPES</h1>
       <p>One player creates the game; the other joins.</p>
+      <p>
+        Firefox has issues with WebRTC data connections, so a temporary local
+        video stream of one of your windows (your choice) is created as a
+        workaround. No data from this stream is sent anywhere. This stream is
+        also discarded as soon as the connection is established, but if this
+        bothers you, use Chrome.
+      </p>
+      <p>
+        Use the same browser as your opponent for maximum compatibility, but a
+        Firefox host and Chrome guest <b>should</b> work fine as well.
+      </p>
       <button class="btn btn-success" id="createGameButton">Create</button>
       <button class="btn btn-info" id="joinGameButton">Join</button>
     </div>
