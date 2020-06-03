@@ -81,8 +81,7 @@ input[type="color"] {
 }
 
 .queried {
-  border: 2px solid black;
-  border-radius: 0.25rem;
+  opacity: 30%;
 }
 
 .targetted {
